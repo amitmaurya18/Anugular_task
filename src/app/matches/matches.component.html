@@ -1,0 +1,21 @@
+<div *ngIf="upcomingMatches" class="container">
+  <h3 class="text-4xl font-extrabold text-gray-800">Upcoming Matches</h3>
+  <div class="card-container grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8">
+    <div *ngFor="let date of Object.keys(upcomingMatches)">
+      <div class="card bg-white shadow-md rounded-lg p-4">
+        <h3 class="text-center font-bold">{{ date }}</h3>
+        <div class="bg-white transition-all hover:bg-blue-500 hover:text-red-600 hover:border-b-orange-300 card h-full shadow border rounded-xl border-b-8 border-b-blue-400 cursor-pointer p-3 space-y-2">
+          <div class="py-3  border-b-2">
+          <div *ngFor="let match of upcomingMatches[date]['Ipl']" class="mt-4">
+            <div class="bg-gray-100 shadow-md rounded-lg p-4">
+              <p class="font-bold">{{match.match_number_with_format}} <span class="font-bold">&bull;</span> {{match.venue_location}}</p>
+              <p class="font-bold">{{ match.t1 }}</p>
+              <p class="font-bold">{{ match.t2 }}</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
